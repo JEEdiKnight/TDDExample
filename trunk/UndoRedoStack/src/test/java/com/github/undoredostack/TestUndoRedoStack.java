@@ -36,16 +36,9 @@ public class TestUndoRedoStack {
         assertEquals(COMMAND_2, actualResult);
     }
 
-    @Test
+    @Test(expected = NoCommandToUndoException.class)
     public void undoWithOutPreviousCommandsThrowException() {
         //Act
-        try {
-            stack.undo();
-            //Assert
-            fail();
-        } catch (NoCommandToUndoException e) {
-            
-        }
-        
+        stack.undo();
     }
 }
