@@ -8,7 +8,6 @@ public class UndoRedoStack {
     private List<String> commands = new ArrayList<String>();
     private boolean moreThanOneUndo = false;
     public void command(String command) {
-        
         commands.add(command);
     }
 
@@ -16,13 +15,10 @@ public class UndoRedoStack {
         if (commands.isEmpty()) {
             throw new NoCommandToUndoException();
         }
-        if (moreThanOneUndo) {
-            return "command1";
-        } else {
-            moreThanOneUndo = true;
-            return commands.get(commands.size() - 1);
-        }
-        
+        int lastIndex = commands.size() - 1;
+        String lastCommand = commands.get(lastIndex);
+        commands.remove(lastIndex);
+        return lastCommand;
     }
 
     public String redo() {
