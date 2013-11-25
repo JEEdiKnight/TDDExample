@@ -5,6 +5,7 @@ import java.util.List;
 
 public class UndoRedoStack {
 
+    private static final int FIRST_LIST_INDEX  = 0;
     private final List<String> commands = new ArrayList<String>();
     private final List<String> commandsUndone = new ArrayList<String>();
 
@@ -31,13 +32,22 @@ public class UndoRedoStack {
         return removeLastCommand();
     }
 
+    private boolean undoneCommandStackIsEmpty() {
+        return commandsUndone.isEmpty();
+    }
+
+    private String removeLastCommandUndone() {
+        String lastCommandUndone = commandsUndone.get(FIRST_LIST_INDEX);
+        commandsUndone.remove(FIRST_LIST_INDEX);
+        return lastCommandUndone;
+    }
+
     public String redo() {
-        if (commandsUndone.isEmpty()) {
+        if (undoneCommandStackIsEmpty()) {
             throw new NoCommandToRedoException();
         }
-        String lastCommandUndo = commandsUndone.get(0);
-        commandsUndone.remove(0);
-        command(lastCommandUndo);
-        return lastCommandUndo;
+        String lastCommandUndone = removeLastCommandUndone();
+        command(lastCommandUndone);
+        return lastCommandUndone;
     }
 }
