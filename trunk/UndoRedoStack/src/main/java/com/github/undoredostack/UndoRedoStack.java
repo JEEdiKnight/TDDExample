@@ -11,7 +11,7 @@ public class UndoRedoStack {
         commands.add(command);
     }
 
-    public String removeLastCommand() {
+    private String removeLastCommand() {
         int lastIndex = commands.size() - 1;
         String lastCommand = commands.get(lastIndex);
         commands.remove(lastIndex);
