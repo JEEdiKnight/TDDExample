@@ -15,6 +15,12 @@ public class TestUndoRedoStack {
         stack = new UndoRedoStack();
     }
 
+    @Test(expected = NoCommandToUndoException.class)
+    public void undoWithOutPreviousCommandsThrowException() {
+        //Act
+        stack.undo();
+    }
+
     @Test
     public void undoReturnLastCommand() {
         //Arrange
@@ -36,9 +42,5 @@ public class TestUndoRedoStack {
         assertEquals(COMMAND_2, actualResult);
     }
 
-    @Test(expected = NoCommandToUndoException.class)
-    public void undoWithOutPreviousCommandsThrowException() {
-        //Act
-        stack.undo();
-    }
+    
 }
