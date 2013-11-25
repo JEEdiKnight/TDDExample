@@ -5,20 +5,28 @@ import java.util.List;
 
 public class UndoRedoStack {
 
-    private List<String> commands = new ArrayList<String>();
-    private boolean moreThanOneUndo = false;
+    private final List<String> commands = new ArrayList<String>();
+
     public void command(String command) {
         commands.add(command);
     }
 
-    public String undo() {
-        if (commands.isEmpty()) {
-            throw new NoCommandToUndoException();
-        }
+    public String removeLastCommand() {
         int lastIndex = commands.size() - 1;
         String lastCommand = commands.get(lastIndex);
         commands.remove(lastIndex);
         return lastCommand;
+    }
+
+    private boolean commandStackIsEmpty() {
+        return commands.isEmpty();
+    }
+
+    public String undo() {
+        if (commandStackIsEmpty()) {
+            throw new NoCommandToUndoException();
+        }
+        return removeLastCommand();
     }
 
     public String redo() {
