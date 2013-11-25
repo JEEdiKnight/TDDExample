@@ -52,6 +52,6 @@ public class UndoRedoStack {
     }
 
     boolean canUndoCommand() {
-        return false;
+        return !commandStackIsEmpty();
     }
 }
