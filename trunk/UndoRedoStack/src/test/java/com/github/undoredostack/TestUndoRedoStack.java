@@ -42,7 +42,8 @@ public class TestUndoRedoStack {
         assertEquals(COMMAND_2, actualResult);
     }
 
-    @Test void twoCommandsTwoUndoLastUndoReturnsFirstCommand() {
+    @Test
+    public void twoCommandsTwoUndoLastUndoReturnsFirstCommand() {
         //Arrange
         stack.command(COMMAND_1);
         stack.command(COMMAND_2);
