@@ -56,6 +56,6 @@ public class UndoRedoStack {
     }
 
     boolean canRedoCommand() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return false;
     }
 }
