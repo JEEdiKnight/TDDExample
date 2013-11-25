@@ -7,7 +7,7 @@ public class UndoRedoStack {
     }
 
     public String undo() {
-        return null;
+        return "command1";
     }
 
     public String redo() {
