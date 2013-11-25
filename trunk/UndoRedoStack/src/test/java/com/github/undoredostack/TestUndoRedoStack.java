@@ -35,4 +35,17 @@ public class TestUndoRedoStack {
         //Assert
         assertEquals(COMMAND_2, actualResult);
     }
+
+    @Test
+    public void undoWithOutPreviousCommandsThrowException() {
+        //Act
+        try {
+            stack.undo();
+            //Assert
+            fail();
+        } catch (RuntimeException e) {
+            
+        }
+        
+    }
 }
