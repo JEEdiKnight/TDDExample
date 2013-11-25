@@ -87,4 +87,10 @@ public class TestUndoRedoStack {
         String actualResult = stack.redo();
         assertEquals(COMMAND_2, actualResult);
     }
+    
+    @Test
+    public void canUndoCommandShouldReturnFalseWhenNoCommands() {
+        boolean actualResult = stack.canUndoCommand();
+        assertFalse(actualResult);
+    }
 }

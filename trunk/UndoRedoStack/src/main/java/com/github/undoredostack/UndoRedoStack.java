@@ -50,4 +50,8 @@ public class UndoRedoStack {
         command(lastCommandUndone);
         return lastCommandUndone;
     }
+
+    boolean canUndoCommand() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
