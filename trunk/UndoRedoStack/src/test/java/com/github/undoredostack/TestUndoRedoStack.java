@@ -59,4 +59,12 @@ public class TestUndoRedoStack {
         //Act
         stack.redo();
     }
+
+    @Test
+    public void redoLastCommandUndone() {
+        stack.command(COMMAND_1);
+        stack.undo();
+        String actualResult = stack.redo();
+        assertEquals(COMMAND_1, actualResult);
+    }
 }
