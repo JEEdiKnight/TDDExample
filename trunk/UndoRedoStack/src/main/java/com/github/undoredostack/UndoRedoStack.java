@@ -30,6 +30,6 @@ public class UndoRedoStack {
     }
 
     public String redo() {
-        throw new RuntimeException();
+        throw new NoCommandToRedoException();
     }
 }

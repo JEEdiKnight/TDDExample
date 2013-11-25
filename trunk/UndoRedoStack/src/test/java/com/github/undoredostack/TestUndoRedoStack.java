@@ -54,7 +54,7 @@ public class TestUndoRedoStack {
         assertEquals(COMMAND_1, actualResult);
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test(expected = NoCommandToRedoException.class)
     public void redoWithNoPreviousUndoThrowException() {
         //Act
         stack.redo();
