@@ -93,4 +93,11 @@ public class TestUndoRedoStack {
         boolean actualResult = stack.canUndoCommand();
         assertFalse(actualResult);
     }
+
+    @Test
+    public void canUndoCommandShouldReturnTrueWhenCommandsBeenUsed() {
+        stack.command(COMMAND_1);
+        boolean actualResult = stack.canUndoCommand();
+        assertTrue(actualResult);
+    }
 }
