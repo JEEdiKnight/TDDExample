@@ -54,4 +54,8 @@ public class UndoRedoStack {
     boolean canUndoCommand() {
         return !commandStackIsEmpty();
     }
+
+    boolean canRedoCommand() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
