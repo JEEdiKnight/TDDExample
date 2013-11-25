@@ -76,4 +76,15 @@ public class TestUndoRedoStack {
         String actualResult = stack.redo();
         assertEquals(COMMAND_1, actualResult);
     }
+
+    @Test
+    public void twoUndoTwoRedoShouldReturnFirstCommandUndone() {
+        stack.command(COMMAND_1);
+        stack.command(COMMAND_2);
+        stack.undo();//undo COMMAND_2
+        stack.undo();//undo COMMAND_1
+        stack.redo();
+        String actualResult = stack.redo();
+        assertEquals(COMMAND_2, actualResult);
+    }
 }
