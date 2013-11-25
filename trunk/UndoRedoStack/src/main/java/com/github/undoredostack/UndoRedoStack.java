@@ -8,7 +8,7 @@ public class UndoRedoStack {
 
     public String undo() {
         if (lastCommand == null) {
-            throw new RuntimeException();
+            throw new NoCommandToUndoException();
         }
         return lastCommand;
     }

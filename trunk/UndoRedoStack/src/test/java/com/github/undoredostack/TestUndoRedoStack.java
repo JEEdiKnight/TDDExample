@@ -43,7 +43,7 @@ public class TestUndoRedoStack {
             stack.undo();
             //Assert
             fail();
-        } catch (RuntimeException e) {
+        } catch (NoCommandToUndoException e) {
             
         }
         
